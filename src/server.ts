@@ -3,6 +3,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import createError, { HttpError } from 'http-errors';
 import morgan from 'morgan';
 
+import http from 'http';
 import mainRouter from './routes/main';
 
 const app = express();
@@ -42,6 +43,9 @@ app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
   res.send(err);
 });
 
+const httpServer = http.createServer(app);
 const port = process.env.PORT || '3000';
 
-export default app.listen(port, () => console.log(`listening on ${port}`));
+httpServer.listen(port, () => {
+  console.info(`🚀 Server ready at http://localhost:${port}`);
+});

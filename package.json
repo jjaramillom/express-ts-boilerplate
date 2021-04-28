@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "ts-node-dev --poll src/index.ts",
+    "start": "ts-node src/server.ts",
+    "dev": "ts-node-dev --poll src/server.ts",
     "build-server": "rimraf ./build && tsc --project './tsconfig.json",
     "lint:ts": "eslint . --ext .ts",
     "lint:ts:fix": "npm run lint:ts -- --fix"
